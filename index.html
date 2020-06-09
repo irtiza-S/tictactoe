@@ -3,11 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    <h1>Tic Tac Toe</h1>
+    <div class='popupForm' id='popupForm'>
+        <div class='modalHeader'>
+            <div class='title'>Tic Tac Toe</div>
+            <button id='closeBtn'class='closeBtn'>&times;</button>
+        </div>
+        
+        <div class='modalBody'>
+            <label class='pLabel'for="#">Player 1</label>
+            <input id='pTi1'class='pTi'type="text" placeholder="Type in your name" required>
+            <label class='pLabel'for="#">Player 2</label>
+            <input id='pTi2'class='pTi'type="text" placeholder="Type in your name" required>
+            <button id='startGame'class='startGame'>Start Game</button>
+        </div>
+    </div>
+    <div id='overlay'></div>
+    
+    <h1 id='heading'>Tic Tac Toe</h1>
+    <div class="container" id='container'></div>
+    <h3 id='pTitle1'class='player'>Player 1: </h3>
+    <h3 id='pTitle2'class='player'>Player 2: </h3>
+    
     <script src='app.js'></script>
 </body>
 </html>
