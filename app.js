@@ -1,13 +1,25 @@
 //Planning: 
 //Does your project have a UI? Yes it does. 
-//What does the UI look like? It will be a 3 x 3 grid, 
+//What does the UI look like? It will be a 3 x 3 grid, --- done.
+//Does your UI have a popup form? Yes -- done
+//Current task 3.2 - 
+//1.Understand the problem - write a function - which will display the elements in the gameBoard array onto the grid. For now just manually fill the gameBoard array with 'X's and 'O's.
+//Step 1 - Manually fill in values for the gameBoard array - done.
+//Step 2 - We need to loop through the gameBoard array and display each value onto the grid.
+//Step 2 - sub problem: to display each value of the gameBoard array onto each cell of grid - we need to also loop through the grid cells - and for each cell we would have to display the corresponding gameBoardArr element. 
+//So - 2.1: Target the grid cells - document.getElementsByCLassName('square') - done.
+//2.2 Loop through the gridCells nodeList - gridCells.forEach(gridCell => ...)
+//2.2 sub - problem - since the grid was created inside of another scope - we need to loop inside of the same scope. - done
+//2.2 sub-problem: need to attach each element of the gameBoardArr to each element of the gridCells nodeList
+//Task 3.2 has been completely.
+//Task 4 - 
 //-------------------------------------------------------
 
 
 
 //gameBoard module - IIFE
 var GameBoard = (function(){
-    let gameBoardArr = ['', '', '', '', '', '', '', '', ''] //gameBoard array
+    let gameBoardArr = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X'] //gameBoard array
 
     
     return {
@@ -15,25 +27,37 @@ var GameBoard = (function(){
     }
 })();
 
-//displayController module - IIFE
+//displayController module - IIFE - 
 var DisplayController = (function (){
+    //this will be responsible for creating the game
+
     //target relevant elements
-    let webpageHeading = document.getElementById('heading');
+    const webpageHeading = document.getElementById('heading');
     let container = document.getElementById('container');
-    let startGameBtn = document.getElementById('startGame'); //startGame Button
+    const startGameBtn = document.getElementById('startGame'); 
     let p1Ti = document.getElementById('pTi1');
     let p2Ti = document.getElementById('pTi2');
     let p1displayName = document.getElementById('pTitle1');
     let p2displayName = document.getElementById('pTitle2');
     let popUpForm = document.getElementById('popupForm');
     let overlay = document.getElementById('overlay');
-    //this will be responsible for creating the game
-    //step 1 - create the 3x3 grid 
+    let gameBoardArr = GameBoard.gameBoardArr;
+    
+    
     function render(){
+        // create the 3x3 grid 
         for(let i = 0; i < 9; i++){
             let gbCell = document.createElement('div');
             gbCell.classList.add('square');
             container.appendChild(gbCell);
+        }
+        
+        //target the grid's nodeList
+        let gridCells = document.getElementsByClassName('square');
+        //Loop through the gridCells nodeList 
+        for(let i = 0; i < gridCells.length; i++){
+            gridCells[i].textContent = gameBoardArr[i]; //since both arrays have the same length all we need is the index position and then to render the board what we need to use is .textContent. 
+            
         }
     }
 
@@ -54,6 +78,8 @@ var DisplayController = (function (){
             
         }
     })
+
+     
     
     return {
         render,
