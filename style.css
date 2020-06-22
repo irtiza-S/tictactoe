@@ -2,7 +2,7 @@
 html {
     box-sizing: border-box;
     font-size: 16px;
-    font-family: 'Balsamiq Sans', cursive;
+    font-family: 'MuseoModerno', cursive;
     height: 600px;
   }
   
@@ -14,7 +14,7 @@ html {
     margin: 0;
     padding: 0;
     font-weight: normal;
-    font-family: 'Sriracha', cursive;
+    /* font-family: 'Sriracha', cursive; */
   }
   
   ol, ul {
